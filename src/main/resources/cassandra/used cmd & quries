@@ -1,0 +1,27 @@
+docker run -p 9042:9042 --rm --name cassandra -e Asia/kolkata -d cassandra:4.0.7
+docker run -e TZ=Asia/kolkata -p 9042:9042 --rm --name cassandra -d cassandra:4.0.7
+
+docker exec -it cassandra cqlsh
+
+CREATE KEYSPACE mslearning WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+
+   CREATE KEYSPACE mslearning
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+
+
+ CREATE TABLE attendance (
+    emp_id int,
+    swipe_type varchar,
+    swipe_time timestamp,
+    PRIMARY KEY ((emp_id), swipe_type,swipe_time)
+) WITH CLUSTERING ORDER BY (swipe_type ASC);
+
+ insert into attendance (emp_id , swipe_type , swipe_time ) VALUES ( 20,'out',dateof(now()-1000*60*60*2));
+
+
+ useful queries
+ select * from attendance where emp_id =1 and swipe_type = 'SWIPE_IN' LIMIT 1;
+ SELECT * FROM attendance where emp_id=1 and swipe_type='SWIPE_IN'
+ SELECT * FROM attendance where emp_id=1 and swipe_type='SWIPE_OUT' order by swipe_time desc;
