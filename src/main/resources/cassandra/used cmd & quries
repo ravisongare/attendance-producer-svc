@@ -3,11 +3,12 @@ docker run -e TZ=Asia/kolkata -p 9042:9042 --rm --name cassandra -d cassandra:4.
 
 docker exec -it cassandra cqlsh
 
-CREATE KEYSPACE mslearning WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+CREATE KEYSPACE mslearning
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
 
-   CREATE KEYSPACE mslearning
-WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+CREATE KEYSPACE mslearning
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
 
 
@@ -25,3 +26,12 @@ WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
  select * from attendance where emp_id =1 and swipe_type = 'SWIPE_IN' LIMIT 1;
  SELECT * FROM attendance where emp_id=1 and swipe_type='SWIPE_IN'
  SELECT * FROM attendance where emp_id=1 and swipe_type='SWIPE_OUT' order by swipe_time desc;
+
+
+ Apache Kafka-
+ docker run -p 9092:9092 apache/kafka:3.7.0
+ docker exec -it 57cc9b6b396e /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic NewTopic
+ docker exec -it 57cc9b6b396e /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic NewTopic --from-beginning
+
+ kafka-topics --bootstrap-server localhost:9092 --list
+ docker exec -it 99065e690653 /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic NewTopic

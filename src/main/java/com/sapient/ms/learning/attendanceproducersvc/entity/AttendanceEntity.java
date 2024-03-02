@@ -9,7 +9,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 @Data
 @AllArgsConstructor
 @Table("attendance")
-public class Attendance {
+public class AttendanceEntity {
 
     @PrimaryKey
     AttendanceKey attendanceKey;
