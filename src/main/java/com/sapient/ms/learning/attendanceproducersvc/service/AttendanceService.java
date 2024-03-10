@@ -9,6 +9,7 @@ import com.sapient.ms.learning.attendanceproducersvc.respository.AttendnceReposi
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,9 @@ public class AttendanceService {
     @Autowired
     KafkaTemplate<String, Attendance> kafkaTemplate;
 
-    private static final String TOPIC = "NewTopic6";
+    @Value("${kafka.topic}")
+    private String TOPIC;
+   // private static final String TOPIC = "NewTopic6";
 
 
     public Map getTotalHors(int empId) {

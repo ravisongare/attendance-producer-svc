@@ -3,6 +3,9 @@ package com.sapient.ms.learning.attendanceproducersvc.config;
 import com.sapient.ms.learning.attendanceproducersvc.kafkamessage.Attendance;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -15,13 +18,15 @@ import java.util.Map;
 
 @Configuration
 public class KafkaProducerConfig {
-
+//Logger logger = LoggerFactory.getLogger(KafkaProducerConfig.class);
+    @Value("${kafka.bootstrap.server}")
+    private String BOOTSTRAP_SERVER;
     @Bean
     public ProducerFactory<String, Attendance> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "127.0.0.1:9092");
+               BOOTSTRAP_SERVER);
         configProps.put(
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
                 StringSerializer.class);
