@@ -1,4 +1,4 @@
-package com.sapient.ms.learning.attendanceproducersvc.entity;
+package com.ms.learning.attendanceproducersvc.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,0 +1,7 @@
+## To run commands in container inside pods
+ kubectl exec -it (pod-id)broker-697b69fcd5-pzx8q -- /bin/bash
+
+ ##To create kafka topic
+opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic1 --create --partitions 3 --replication-factor 1
+opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic MsLearningTopic
+opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic MsLearningTopic --from-beginning

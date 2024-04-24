@@ -1,4 +1,4 @@
-package com.sapient.ms.learning.attendanceproducersvc.kafkamessage;
+package com.ms.learning.attendanceproducersvc.kafkamessage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

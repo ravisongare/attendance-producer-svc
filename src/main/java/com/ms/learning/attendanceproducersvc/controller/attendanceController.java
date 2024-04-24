@@ -1,7 +1,7 @@
-package com.sapient.ms.learning.attendanceproducersvc.controller;
+package com.ms.learning.attendanceproducersvc.controller;
 
-import com.sapient.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
-import com.sapient.ms.learning.attendanceproducersvc.service.AttendanceService;
+import com.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
+import com.ms.learning.attendanceproducersvc.service.AttendanceService;
 import org.apache.kafka.common.protocol.types.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = {"attendance"})
+//@RequestMapping(path = {"attendance"})
 public class attendanceController {
     Logger logger = LoggerFactory.getLogger(attendanceController.class);
 
@@ -49,4 +49,6 @@ public class attendanceController {
         attendanceService.sendDataToKafkaka((double)map.get("totalMins"),empId,(Date) map.get("date"));
         return ResponseEntity.ok("Total Mins:"+(double)map.get("totalMins"));
     }
+
+
 }

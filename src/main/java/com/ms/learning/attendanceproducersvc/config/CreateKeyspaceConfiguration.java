@@ -1,4 +1,4 @@
-package com.sapient.ms.learning.attendanceproducersvc.config;
+package com.ms.learning.attendanceproducersvc.config;
 
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.annotation.Value;

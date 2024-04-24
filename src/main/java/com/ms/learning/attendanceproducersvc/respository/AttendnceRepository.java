@@ -1,6 +1,6 @@
-package com.sapient.ms.learning.attendanceproducersvc.respository;
+package com.ms.learning.attendanceproducersvc.respository;
 
-import com.sapient.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
+import com.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.stereotype.Repository;

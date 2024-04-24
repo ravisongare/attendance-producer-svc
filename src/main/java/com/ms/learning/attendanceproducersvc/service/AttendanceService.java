@@ -1,11 +1,11 @@
-package com.sapient.ms.learning.attendanceproducersvc.service;
+package com.ms.learning.attendanceproducersvc.service;
 
-import com.sapient.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
-import com.sapient.ms.learning.attendanceproducersvc.entity.AttendanceKey;
-import com.sapient.ms.learning.attendanceproducersvc.enums.AttendanceStatusEnum;
-import com.sapient.ms.learning.attendanceproducersvc.enums.SwipeTypeEnum;
-import com.sapient.ms.learning.attendanceproducersvc.kafkamessage.Attendance;
-import com.sapient.ms.learning.attendanceproducersvc.respository.AttendnceRepository;
+import com.ms.learning.attendanceproducersvc.enums.AttendanceStatusEnum;
+import com.ms.learning.attendanceproducersvc.enums.SwipeTypeEnum;
+import com.ms.learning.attendanceproducersvc.kafkamessage.Attendance;
+import com.ms.learning.attendanceproducersvc.entity.AttendanceEntity;
+import com.ms.learning.attendanceproducersvc.entity.AttendanceKey;
+import com.ms.learning.attendanceproducersvc.respository.AttendnceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,13 +84,13 @@ public class AttendanceService {
 
     public void sendDataToKafkaka(double totalMins, int empId, Date date) {
         AttendanceStatusEnum attendanceStatus = getAttendanceStatus(totalMins/60);
-        Attendance attendance = getAttndance(empId, attendanceStatus, date,totalMins);
+        Attendance attendance = getAttendance(empId, attendanceStatus, date,totalMins);
         logger.info("Sending data to kafka : {}", attendance);
         kafkaTemplate.send(TOPIC, attendance);
         logger.info("sent data to kafka : {}");
     }
 
-    private Attendance getAttndance(int empId, AttendanceStatusEnum attendanceStatus, Date date, double totalMins) {
+    private Attendance getAttendance(int empId, AttendanceStatusEnum attendanceStatus, Date date, double totalMins) {
         return new Attendance(empId, attendanceStatus.name(), date, totalMins,"");
     }
 

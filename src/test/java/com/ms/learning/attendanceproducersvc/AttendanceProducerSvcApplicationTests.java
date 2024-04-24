@@ -1,4 +1,4 @@
-package com.sapient.ms.learning.attendanceproducersvc;
+package com.ms.learning.attendanceproducersvc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

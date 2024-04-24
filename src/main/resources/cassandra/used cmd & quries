@@ -50,3 +50,9 @@ docker run --network=mslearning_default -e CASSANDRA_CONTACT_POINT='cassandra' r
 
 #spring.cassandra.local-datacenter=datacenter1
 #spring.cassandra.keyspace-name=mslearning
+
+
+
+**************************I
+Gateway =>
+docker run -p 8686:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.1 start-dev

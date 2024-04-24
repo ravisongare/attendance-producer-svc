@@ -1,6 +1,6 @@
-package com.sapient.ms.learning.attendanceproducersvc.controller;
+package com.ms.learning.attendanceproducersvc.controller;
 
-import com.sapient.ms.learning.attendanceproducersvc.kafkamessage.Attendance;
+import com.ms.learning.attendanceproducersvc.kafkamessage.Attendance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
